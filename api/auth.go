@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -53,7 +54,14 @@ type LoginCredentialsResponse struct {
 	Token string `json:"token"`
 }
 
+type Token struct {
+	Name string
+	JWT  string
+	TTL  time.Time
+}
+
 func Login(w http.ResponseWriter, r *http.Request) {
+	log.Println("Logging")
 	var credentials LoginCredentialsRequest
 	err := json.NewDecoder(r.Body).Decode(&credentials)
 	if err != nil {
@@ -109,34 +117,49 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Println("Logged in")
 	// Finally, we set the client cookie for "token" as the JWT we just generated
 	// we also set an expiry time which is the same as the token itself
-	http.SetCookie(w, &http.Cookie{
-		Name:    "token",
-		Value:   tokenString,
-		Expires: expirationTime,
-	})
+	var creds Token
+	creds.Name = "token"
+	creds.JWT = tokenString
+	creds.TTL = expirationTime
+
+	json.NewEncoder(w).Encode(creds)
+	// http.SetCookie(w, &http.Cookie{
+	// 	Name:    "token",
+	// 	Value:   tokenString,
+	// 	Expires: expirationTime,
+	// })
 }
 
 func AuthorizeAndRefresh(w http.ResponseWriter, r *http.Request) (code int, errMsg *ErrorResponse, claims *Claims) {
 	errMsg = new(ErrorResponse)
 	claims = &Claims{}
 	// We can obtain the session token from the requests cookies, which come with every request
-	cookie, err := r.Cookie("token")
-	if err != nil {
-		if err == http.ErrNoCookie {
-			errMsg.Code = 2001
-			errMsg.Message = "No cookie in request"
-			return http.StatusUnauthorized, errMsg, claims
-		}
-		log.Println(err)
-		errMsg.Code = 2003
-		errMsg.Message = "Internal server error"
-		return http.StatusBadRequest, errMsg, claims
+	// cookie, err := r.Cookie("token")
+	// if err != nil {
+	// 	if err == http.ErrNoCookie {
+	// 		errMsg.Code = 2001
+	// 		errMsg.Message = "No cookie in request"
+	// 		return http.StatusUnauthorized, errMsg, claims
+	// 	}
+	// 	log.Println(err)
+	// 	errMsg.Code = 2003
+	// 	errMsg.Message = "Internal server error"
+	// 	return http.StatusBadRequest, errMsg, claims
+	// }
+
+	// // Get the JWT string from the cookie
+	// tknStr := cookie.Value
+	authHeader := r.Header.Get("Authorization")
+	if authHeader == "" {
+		errMsg.Code = 2001
+		errMsg.Message = "No authorization in the request"
+		return http.StatusUnauthorized, errMsg, claims
 	}
 
-	// Get the JWT string from the cookie
-	tknStr := cookie.Value
+	tknStr := strings.Split(authHeader, " ")[1]
 
 	// Parse the JWT string and store the result in `claims`.
 	// Note that we are passing the key in this method as well. This method will return an error
@@ -165,27 +188,27 @@ func AuthorizeAndRefresh(w http.ResponseWriter, r *http.Request) (code int, errM
 	// We ensure that a new token is not issued until enough time has elapsed
 	// In this case, a new token will only be issued if the old token is within
 	// 30 seconds of expiry. Otherwise, return a bad request status
-	if time.Unix(claims.ExpiresAt, 0).Sub(time.Now()) < 60*time.Second {
+	// if time.Unix(claims.ExpiresAt, 0).Sub(time.Now()) < 60*time.Second {
 
-		// Now, create a new token for the current use, with a renewed expiration time
-		expirationTime := time.Now().Add(jwtTTL * time.Second)
-		claims.ExpiresAt = expirationTime.Unix()
-		token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-		tokenString, err := token.SignedString(jwtKey)
-		if err != nil {
-			errMsg.Code = 2007
-			errMsg.Message = "Internal server error"
-			return http.StatusBadRequest, errMsg, claims
-		}
+	// 	// Now, create a new token for the current use, with a renewed expiration time
+	// 	expirationTime := time.Now().Add(jwtTTL * time.Second)
+	// 	claims.ExpiresAt = expirationTime.Unix()
+	// 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	// 	tokenString, err := token.SignedString(jwtKey)
+	// 	if err != nil {
+	// 		errMsg.Code = 2007
+	// 		errMsg.Message = "Internal server error"
+	// 		return http.StatusBadRequest, errMsg, claims
+	// 	}
 
-		// Set the new token as the users `token` cookie
-		http.SetCookie(w, &http.Cookie{
-			Name:    "token",
-			Value:   tokenString,
-			Expires: expirationTime,
-		})
+	// 	// Set the new token as the users `token` cookie
+	// 	http.SetCookie(w, &http.Cookie{
+	// 		Name:    "token",
+	// 		Value:   tokenString,
+	// 		Expires: expirationTime,
+	// 	})
 
-	}
+	// }
 
 	return 0, errMsg, claims
 }
