@@ -6,8 +6,10 @@
 					<div class="hero">
 					<h1>Sve o EU fondovima na jednom mestu</h1>
 					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-					<a class="btn" href="/">Button</a>
-					<a class="btn" href="/">Button 2</a>
+					<div class="buttons" style="display:flex">
+							<a class="btn orange" href="/">Button</a>
+							<a class="btn white" href="/">Button 2</a>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -56,28 +58,36 @@ export default {
 			background-color:#999999;
 		}
 		.hero{
-			height:400px;
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
 			justify-content: center;
+			padding:150px 0px;
 			h1{
 				color:white;
 				font-weight: 900;
+				width: 50%;
+   			text-align: left;
+				font-size: 4em;
 			}
 			p{
 				font-style: italic;
 				color:white;
 			}		   
 		}
+		.buttons{
+			.btn:last-child{
+				margin-left:15px;
+			}
+		}
 		.block{
 			display: flex;
 			justify-content: center;
 			align-items: flex-start;
-			min-height:300px;
 			flex-direction: column;
-			padding:20px;
+			padding:100px 0px;
 			&:nth-child(even){
+				padding:0px;
 				align-items:flex-end;
 			}
 		}
@@ -88,11 +98,12 @@ export default {
 		h3{
 			font-weight: 900;
 			font-size: 35px;
-			padding:20px;
+			padding:20px 0px;
 		}
 		.btn{
-            padding:8px 14px;
+      padding:8px 24px;
 			border-radius:20px;
+			font-weight: bolder;
 		}
 		.orange{
 			background-color:#f2a755;
@@ -102,6 +113,10 @@ export default {
 		}	
 		.blue{
 			background-color:lightblue;
+		}
+		.white{
+			background-color:white;
+
 		}
 	}
 

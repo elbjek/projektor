@@ -1,6 +1,6 @@
 <template>
 	<div class="footer-wrapper">
-			<div class="footer">
+			<div class="footer max-width">
                 <ul>
                     <li><a href="">Uslovi Koriscenja</a></li>
                     <li><a href="">Nesto drugo</a></li>                    
@@ -22,17 +22,22 @@ export default {
 
 <style lang="scss" scoped>
     .footer-wrapper{
+        background-color:#2d2d2d;
         .footer{
+            padding:20px;
             ul{
                 margin:0;
                 padding:0;
-                background-color:pink;
                 li{
                     list-style-type: none;
                     display: inline;
                     a{
                         padding:20px;
                         text-decoration: none;
+                        color:white;
+                        &:hover{
+                            text-decoration: underline;
+                        }
                     }
                 }
             }

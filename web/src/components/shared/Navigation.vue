@@ -5,8 +5,8 @@
             <li><a href="/">Projektor</a></li>
         </ul>
         <ul class="right">
-            <li><a class=" login" href="/login">Uloguj se</a></li>
-            <li><a class=" reg" href="">Registruj se</a></li>            
+            <li><a class="login" href="/login">Uloguj se</a></li>
+            <li><a class="reg" href="">Registruj se</a></li>            
         </ul>
        </div> 
     </div>
@@ -75,8 +75,11 @@ export default {
                 }
             }
         }
+        .login{
+            border-color:white;
+        }
         .login, .reg{
-            padding:8px 14px;
+            padding:8px 24px;
             border:3px solid #f2a755;
             border-radius:20px;
         }

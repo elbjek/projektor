@@ -1,10 +1,10 @@
 <template>
     <div class="form-wrapper">
-      <form amethod="POST" action="/login">
+      <form method="POST" action="/login">
       <input type="text" v-bind="input.username" placeholder="username" >
       <input type="text" v-bind="input.password" placeholder="password" >
       <!-- value="123qwe" -->
-      <button type="submit" @:click="formSubmit()">Submit</button>
+      <button  @:click="formSubmit(e)">Submit</button>
       </form>
       </div>
 </template>
@@ -26,11 +26,11 @@ export default {
     }
   },
   functions:{
-            formSubmit() {  
-                this.axios({ method: "POST", "url": "localhost:80/api/login", 
+            formSubmit(e) {
+                e.preventDefault()  
+                this.axios({ method: "POST", "url": "api/login", 
                 "data": this.input, "headers": { "content-type": "application/json" } }).then(result => {
                     this.response = result.data;
-                    // console.log(result)
                 }, error => {
                     console.error(error);
                 });
@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 
 	.form-wrapper{
-		min-height:90vh;
+		// min-height:90vh;
 		background-color:lightblue;
 	}
 
