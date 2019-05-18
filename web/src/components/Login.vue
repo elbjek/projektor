@@ -1,10 +1,10 @@
 <template>
     <div class="form-wrapper">
-      <form method="POST" action="/login">
+      <form method="POST" action="/login" v-on:submit.prevent="formSubmit(event)">
       <input type="text" v-bind="input.username" placeholder="username" >
       <input type="text" v-bind="input.password" placeholder="password" >
       <!-- value="123qwe" -->
-      <button  @:click="formSubmit(e)">Submit</button>
+      <button>Submit</button>
       </form>
       </div>
 </template>
@@ -27,8 +27,8 @@ export default {
   },
   functions:{
             formSubmit(e) {
-                e.preventDefault()  
-                this.axios({ method: "POST", "url": "api/login", 
+                event.preventDefault()  
+                this.axios({ method: "POST", "url": "http://localhost:8080/api/login", 
                 "data": this.input, "headers": { "content-type": "application/json" } }).then(result => {
                     this.response = result.data;
                 }, error => {
