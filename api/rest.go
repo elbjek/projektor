@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 type ErrorResponse struct {
@@ -16,9 +17,14 @@ func RunAPI() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.Use(JsonMiddleware)
 
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"http://localhost:8080"},
+	})
+	handler := c.Handler(router)
+
 	router.HandleFunc("/login", Login).Methods("POST")
 
-	log.Fatal(http.ListenAndServe(":80", router))
+	log.Fatal(http.ListenAndServe(":80", handler))
 }
 
 func JsonMiddleware(next http.Handler) http.Handler {

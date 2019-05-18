@@ -12,6 +12,10 @@ services:
         published: 80
         protocol: tcp
         mode: host
+    volumes:
+      - type: bind
+        source: ./web/src
+        target: /app/src
     networks:
       localnet:
         aliases:
@@ -23,6 +27,11 @@ services:
       args:
         buildno: 2
     container_name: api
+    ports:
+    - target: 8080
+      published: 8080
+      protocol: tcp
+      mode: host
     networks:
       localnet:
         aliases:

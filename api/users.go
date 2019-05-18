@@ -96,3 +96,5 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		Expires: expirationTime,
 	})
 }
+
+// func GetUser(w http.ResponseWriter, r *http.Request)
