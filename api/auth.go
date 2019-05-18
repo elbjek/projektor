@@ -15,7 +15,7 @@ import (
 
 var jwtKey = []byte("2eab7d68-fbec-4335-bdfc-0f6ecd44230b")
 
-const jwtTTL = 600
+const jwtTTL = 3600
 
 // Claims JWT specs
 type Claims struct {
@@ -55,9 +55,10 @@ type LoginCredentialsResponse struct {
 }
 
 type Token struct {
-	Name string
-	JWT  string
-	TTL  time.Time
+	Name     string    `json:"name"`
+	JWT      string    `json:"jwt"`
+	TTL      time.Time `json:"ttl"`
+	Redirect string    `json:"redirect"`
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -124,7 +125,9 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	creds.Name = "token"
 	creds.JWT = tokenString
 	creds.TTL = expirationTime
+	creds.Redirect = fmt.Sprintf("/user/%v", uid)
 
+	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(creds)
 	// http.SetCookie(w, &http.Cookie{
 	// 	Name:    "token",
