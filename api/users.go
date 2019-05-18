@@ -8,93 +8,40 @@ Prefix: /v1/users
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
-	"time"
 
-	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
 )
 
-type User struct {
-	ID       uuid.UUID
-	Username string
-	email    string
-	Role     uuid.UUID
+type GetUserResponse struct {
+	ID        uuid.UUID
+	Username  string
+	Email     string
+	Firstname string
+	Lastname  string
 }
 
-type LoginCredentialsRequest struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
-type LoginCredentialsResponse struct {
-	TTL   int    `json:"ttl"`
-	Token string `json:"token"`
-}
-
-func Login(w http.ResponseWriter, r *http.Request) {
-	var credentials LoginCredentialsRequest
-	err := json.NewDecoder(r.Body).Decode(&credentials)
-	if err != nil {
-		log.Println(err)
-		w.WriteHeader(http.StatusBadRequest)
-		json.NewEncoder(w).Encode(ErrorResponse{101, "Cannot unmarshal body, bad request"})
+func GetUser(w http.ResponseWriter, r *http.Request) {
+	code, errMsg, claims := AuthorizeAndRefresh(w, r)
+	if code != 0 {
+		w.WriteHeader(code)
+		json.NewEncoder(w).Encode(errMsg)
 		return
 	}
+	var user GetUserResponse
+	user.ID = claims.UID
+	user.Username = claims.Username
 
-	// Attempt to retreive hash and uuid from the DB
-	var uid uuid.UUID
-	var hash string
-
-	err = db.QueryRow(
+	err := db.QueryRow(
 		fmt.Sprintf(
-			qGetUserUuidAndHash, credentials.Username,
+			qGetUser, user.ID,
 		),
-	).Scan(&uid, &hash)
+	).Scan(&user.Email, &user.Firstname, &user.Lastname)
 	if err != nil {
-		w.WriteHeader(http.StatusUnauthorized)
-		json.NewEncoder(w).Encode(ErrorResponse{102, "User not found"})
-		return
-	}
-
-	// Check password and if the hashses match
-	valid := CheckPassword(credentials.Password, hash)
-	if !valid {
-		w.WriteHeader(http.StatusUnauthorized)
-		return
-	}
-
-	// JWT expiration time
-	expirationTime := time.Now().Add(5 * time.Minute)
-	// Create the JWT claims, which includes the username and expiry time
-	claims := &Claims{
-		UID:      uid,
-		Username: credentials.Username,
-		StandardClaims: jwt.StandardClaims{
-			// In JWT, the expiry time is expressed as unix milliseconds
-			ExpiresAt: expirationTime.Unix(),
-		},
-	}
-
-	// Declare the token with the algorithm used for signing, and the claims
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	// Create the JWT string
-	tokenString, err := token.SignedString(jwtKey)
-	if err != nil {
-		// If there is an error in creating the JWT return an internal server error
-		log.Printf("1003: %+v", err)
 		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(ErrorResponse{1501, "Internal Server Error"})
 		return
 	}
 
-	// Finally, we set the client cookie for "token" as the JWT we just generated
-	// we also set an expiry time which is the same as the token itself
-	http.SetCookie(w, &http.Cookie{
-		Name:    "token",
-		Value:   tokenString,
-		Expires: expirationTime,
-	})
+	json.NewEncoder(w).Encode(user)
 }
-
-// func GetUser(w http.ResponseWriter, r *http.Request)
