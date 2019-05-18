@@ -1,0 +1,31 @@
+version: '3.4'
+services:
+
+  vue-web:
+    build:
+      context: ./web
+      args:
+        buildno: 1
+    container_name: web
+    ports:
+      - target: 8080
+        published: 80
+        protocol: tcp
+        mode: host
+    networks:
+      localnet:
+        aliases:
+          - web
+
+  api:
+    build:
+      context: ./api
+      args:
+        buildno: 2
+    container_name: api
+    networks:
+      localnet:
+        aliases:
+          - api
+networks:
+  localnet:
