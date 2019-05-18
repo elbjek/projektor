@@ -6,25 +6,31 @@
         </ul>
         <ul class="right">
             <li><a class="login" href="/login">Uloguj se</a></li>
+            <!-- <li><a class="login" v-bind="show" @click="openModal()" href="#">Uloguj se</a></li> -->
+            
+            <login v-if="show"></login>
             <li><a class="reg" href="">Registruj se</a></li>            
         </ul>
        </div> 
     </div>
 </template>
 <script>
-
+import login from '../Login.vue'
 
 export default {
   name: 'navigation',
   components: {
-    
+    login
   },
     data(){
         return {
-            
+            show:false
         }
     },
-    functions:{
+    methods:{
+        // openModal(){
+        //     this.show = !this.show;
+        // }
         // mounted () {
         // this.axios
         // .get('https://api.coindesk.com/v1/bpi/currentprice.json')

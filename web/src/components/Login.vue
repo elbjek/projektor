@@ -1,11 +1,19 @@
 <template>
     <div class="form-wrapper">
-      <form method="POST" action="/login"  v-on:submit.prevent="formSubmit">
-      <input type="text" v-bind="input.username" placeholder="username" >
-      <input type="text" v-bind="input.password" placeholder="password" >
-      <!-- value="123qwe" -->
-      <button>Submit</button>
-      </form>
+        <div class="form">
+            <div class="form-header">
+                <h2>Uloguj se</h2>
+            </div>
+            <form method="POST" action="/login"  v-on:submit.prevent="formSubmit">
+                <input type="text" v-model="fields.username" value="gliga" placeholder="username" >
+                <input type="text" v-model="fields.password" value="123qwe" placeholder="password" >
+                <button>Submit</button>
+            </form>
+        </div>
+       <!-- <div class="form-group">
+            <label for="phone_number">Phone number</label>
+            <input type="text" class="form-control" name="phone_number" :placeholder="client.phone_number" v-model="fields.phone_number"/>
+        </div> -->
       </div>
 </template>
 
@@ -18,21 +26,23 @@ export default {
   },
   data() {
     return{
-        input:{
-            username:'',
-            password:''
-        },
-        response:''
+        fields:{},
+        username:'',
+        password:'',
+        response:'',
+        message:''
     }
   },
   methods:{
+    mounted(){
+        console.log(this.data)
+    },
     formSubmit(event) {
-            event.preventDefault()  
             var config = {
                  headers: {'Access-Control-Allow-Origin': '*'}
             };
-            this.axios({ method: "POST", "url": "http://localhost:80/api/login", 
-            "data": this.input, "headers": { "content-type": "application/json" }, config}).then(result => {
+            this.axios({ method: "POST", "url": "http://localhost:80/login", 
+            "data": this.inputs, "headers": { "content-type": "application/json" }, config}).then(result => {
                 this.response = result.data;
             }, error => {
                 console.error(error);
@@ -45,8 +55,51 @@ export default {
 <style lang="scss" scoped>
 
 	.form-wrapper{
-		// min-height:90vh;
-		background-color:lightblue;
+		min-height:90vh;
+		background-color:#f4f4f4;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        .form{
+            display: flex;
+            flex-direction: column;
+            background-color:white;
+            padding:40px;
+            border-radius:10px;
+            .form-header{
+                padding:20px;
+                h2{
+                font-weight: 900;                   
+                }
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                margin:0 auto;
+                input{
+                    margin:30px 0px;
+                    border:none;
+                    border-bottom:2px solid #2d2d2d;
+                    padding:5px 5px 5px 15px;
+                    &:hover{
+                        border-bottom: 2px solid #f2a755;
+                        transition: 0.4s ease-in-out;
+                    }
+                }
+                button{
+                    background-color:#f2a755;
+                    border:none;
+                    padding:10px;
+                    border-radius:8px;
+                    font-weight: 900;
+                    margin-top:30px;
+                    &:focus{
+                        outline: none;
+                        border:none;
+                    }
+                }
+            }
+        }
 	}
 
 </style>

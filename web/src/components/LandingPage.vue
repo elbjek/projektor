@@ -91,6 +91,9 @@ export default {
 				align-items:flex-end;
 			}
 		}
+		.data-wrapper{
+			display: flex;
+		}
 		.wrapper{
 			background-color:white;
 		}

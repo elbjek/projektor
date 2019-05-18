@@ -6,7 +6,7 @@ window.VueRouter = VueRouter;
 import VueRouter from 'vue-router';
 import router from './router';
 
-
+export const EventBus = new Vue();
 // CSS
 import './assets/css/main.scss'
 
