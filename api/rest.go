@@ -25,7 +25,7 @@ func RunAPI() {
 	router.HandleFunc("/login", Login).Methods("POST")
 	router.HandleFunc("/users/v1/user", GetUser).Methods("GET")
 
-	log.Fatal(http.ListenAndServe(":80", handler))
+	log.Fatal(http.ListenAndServe(":8081", handler))
 }
 
 func JsonMiddleware(next http.Handler) http.Handler {
