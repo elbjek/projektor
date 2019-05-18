@@ -28,8 +28,11 @@ export default {
   methods:{
     formSubmit(event) {
             event.preventDefault()  
+            var config = {
+                 headers: {'Access-Control-Allow-Origin': '*'}
+            };
             this.axios({ method: "POST", "url": "http://localhost:80/api/login", 
-            "data": this.input, "headers": { "content-type": "application/json" } }).then(result => {
+            "data": this.input, "headers": { "content-type": "application/json" }, config}).then(result => {
                 this.response = result.data;
             }, error => {
                 console.error(error);
