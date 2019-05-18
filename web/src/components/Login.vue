@@ -1,6 +1,6 @@
 <template>
     <div class="form-wrapper">
-      <form method="POST" action="/login" v-on:submit.prevent="formSubmit(event)">
+      <form method="POST" action="/login"  v-on:submit.prevent="formSubmit">
       <input type="text" v-bind="input.username" placeholder="username" >
       <input type="text" v-bind="input.password" placeholder="password" >
       <!-- value="123qwe" -->
@@ -25,16 +25,16 @@ export default {
         response:''
     }
   },
-  functions:{
-            formSubmit(e) {
-                event.preventDefault()  
-                this.axios({ method: "POST", "url": "http://localhost:8080/api/login", 
-                "data": this.input, "headers": { "content-type": "application/json" } }).then(result => {
-                    this.response = result.data;
-                }, error => {
-                    console.error(error);
-                });
-            }
+  methods:{
+    formSubmit(event) {
+            event.preventDefault()  
+            this.axios({ method: "POST", "url": "http://localhost:80/api/login", 
+            "data": this.input, "headers": { "content-type": "application/json" } }).then(result => {
+                this.response = result.data;
+            }, error => {
+                console.error(error);
+            });
+        }
   }
 }
 </script>
