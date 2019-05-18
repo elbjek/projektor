@@ -30,7 +30,7 @@ export default {
                 this.axios({ method: "POST", "url": "localhost:80/api/login", 
                 "data": this.input, "headers": { "content-type": "application/json" } }).then(result => {
                     this.response = result.data;
-                    console.log(result)
+                    // console.log(result)
                 }, error => {
                     console.error(error);
                 });
