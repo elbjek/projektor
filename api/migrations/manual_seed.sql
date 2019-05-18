@@ -1,21 +1,27 @@
 INSERT INTO company_fields (id, name) VALUES
-('9e0ac61a-c0fa-46be-891d-c62b87a406cb', 'preduzetnistvo'),
-('b03d5057-8369-4a4a-911b-9278f6c6dd01', 'poljoprivreda'),
-('efaee74d-cf29-426d-b009-1b05d08e2d6e', 'vocarstvo'),
-('70d69a58-554a-4aaa-8a96-74308c111338', 'fizika'),
-('518f87fd-81ae-4df8-9a89-4151d6732a5c', 'blejarstvo'),
-('1a933eb5-98ae-474e-a05d-e97afea593f7', 'gradjevina'),
-('23863540-63dc-4ffb-b998-2a68ae637ba1', 'stocarstvo');
+('9e0ac61a-c0fa-46be-891d-c62b87a406cb', 'proizvodnja'),
+('b03d5057-8369-4a4a-911b-9278f6c6dd01', 'usluga'),
+('ffafd74c-9799-450f-ba6a-3affc8df5669', 'gradjevina'),
+('d6ca5614-efe2-43e5-865a-a1f729b467f9', 'turizam'),
+('c3b3bb5e-1705-43f4-88d2-998619d2009a', 'transport')
 
-INSERT INTO tags VALUES
-('b20c8070-c25e-4042-86a4-0d2cfc4aa505', 'beograd'),
-('1d7292b6-814f-4b3d-9d8d-6e17123b56f6', 'novi sad'),
-('f6649db4-6f18-406e-9fd0-2ea7e3a7e17d', 'centralna srbija'),
-('93d612af-d256-4b08-a670-ddd162975ee3', 'mali preduzetnik'),
-('697afef2-cb93-48db-8f05-772eb4deeda3', 'veliki preduzetnik'),
-('1c9aaedf-ace3-49f0-b764-0911f52ab2b2', 'srednji preduzetnik'),
-('d3fbce50-c7ea-4bf7-bfb2-fe8aef0d43c6', 'ngo'),
-('e0fb765a-0aee-4ed8-b574-af5de8853a53', 'fizika');
+INSERT INTO tag_location VALUES
+('a6dc93c5-6962-44fc-856d-9a2cabae4dae', 'Beograd'),
+('38cd1591-bf73-4081-b7af-6695f48f82cb', 'Centralna Srbija'),
+('49d64df1-9e40-4aa5-8650-9c2c4574195c', 'Nis'),
+('796fb166-a23d-4e23-b88f-911a25322635', 'Novi Sad')
+
+INSERT INTO tag_size (id, name) VALUES
+('8f6f7f10-05f7-4391-8cf6-9c3cddb400f9', 'mikro'),
+('02978911-ae6b-4fbc-a89b-5777056f13eb', 'mala'),
+('91b28a8e-890c-494b-905d-9eb136ce796a', 'srednja'),
+('1352a6ec-c878-445b-bae9-1745dd992bad', 'start-up')
+
+INSERT INTO tag_investment (id, name) VALUES
+('eced4e07-afc8-45d3-95d1-b19fe4002d3b', 'oprema'),
+('5495c208-ff15-4800-911a-1df909eabc34', 'obuka'),
+('811a2478-30a9-4fe8-8db5-0fc672bdbfd9', 'prostor'),
+('e6f4dbe8-7759-498e-acb5-6bc8146a9ad8', 'izvoz')
 
 INSERT INTO user_roles VALUES
 ('a98959b1-8e8a-4821-9b8b-6dd7083b3ad6', 'admin'),
@@ -33,10 +39,11 @@ INSERT INTO applications VALUES
 
 
 INSERT INTO companies VALUES 
-('67f8f522-c1f5-4e08-b9d4-8884a21935e2', 'c9b207f9-1b01-4653-95f0-2df358fc0e3e', 'ISWiB', '9e0ac61a-c0fa-46be-891d-c62b87a406cb', '{"b20c8070-c25e-4042-86a4-0d2cfc4aa505", "d3fbce50-c7ea-4bf7-bfb2-fe8aef0d43c6"}'),
-('81adc65e-8455-4752-8b87-0c6c8fcb604a', '8d597f8e-8f2b-4cb1-88ac-ff50d9e00657', 'Frutina d.o.o.', 'efaee74d-cf29-426d-b009-1b05d08e2d6e', '{"b20c8070-c25e-4042-86a4-0d2cfc4aa505", "93d612af-d256-4b08-a670-ddd162975ee3"}'),
-('583d994e-d012-4b0c-956a-eebb1b80b034', '8616e6fb-b46c-4de4-8986-e94cbbc2098b', 'Delta Holding', '70d69a58-554a-4aaa-8a96-74308c111338', '{"1d7292b6-814f-4b3d-9d8d-6e17123b56f6", "e0fb765a-0aee-4ed8-b574-af5de8853a53", "697afef2-cb93-48db-8f05-772eb4deeda3"}'),
-('18a32fa4-eee1-48ed-bc2c-0475f24f7a9d', '8616e6fb-b46c-4de4-8986-e94cbbc2098b', 'Stepin Vajat', '23863540-63dc-4ffb-b998-2a68ae637ba1', '{"b20c8070-c25e-4042-86a4-0d2cfc4aa505", "1c9aaedf-ace3-49f0-b764-0911f52ab2b2"}'); 
+('67f8f522-c1f5-4e08-b9d4-8884a21935e2', 'c9b207f9-1b01-4653-95f0-2df358fc0e3e', 'ISWiB', 'd6ca5614-efe2-43e5-865a-a1f729b467f9', '8f6f7f10-05f7-4391-8cf6-9c3cddb400f9', 'a6dc93c5-6962-44fc-856d-9a2cabae4dae', 'eced4e07-afc8-45d3-95d1-b19fe4002d3b'),
+('81adc65e-8455-4752-8b87-0c6c8fcb604a', '8d597f8e-8f2b-4cb1-88ac-ff50d9e00657', 'Frutina d.o.o.', '9e0ac61a-c0fa-46be-891d-c62b87a406cb', '02978911-ae6b-4fbc-a89b-5777056f13eb', '49d64df1-9e40-4aa5-8650-9c2c4574195c', '5495c208-ff15-4800-911a-1df909eabc34'),
+('583d994e-d012-4b0c-956a-eebb1b80b034', '8616e6fb-b46c-4de4-8986-e94cbbc2098b', 'Delta Holding', 'b03d5057-8369-4a4a-911b-9278f6c6dd01', '02978911-ae6b-4fbc-a89b-5777056f13eb', '49d64df1-9e40-4aa5-8650-9c2c4574195c', '811a2478-30a9-4fe8-8db5-0fc672bdbfd9'),
+('18a32fa4-eee1-48ed-bc2c-0475f24f7a9d', '8616e6fb-b46c-4de4-8986-e94cbbc2098b', 'Stepin Vajat', 'b03d5057-8369-4a4a-911b-9278f6c6dd01', '02978911-ae6b-4fbc-a89b-5777056f13eb', '49d64df1-9e40-4aa5-8650-9c2c4574195c', 'e6f4dbe8-7759-498e-acb5-6bc8146a9ad8'); 
+
 
 UPDATE users SET company_id='67f8f522-c1f5-4e08-b9d4-8884a21935e2' WHERE id='c9b207f9-1b01-4653-95f0-2df358fc0e3e';
 UPDATE users SET company_id='81adc65e-8455-4752-8b87-0c6c8fcb604a' WHERE id='8d597f8e-8f2b-4cb1-88ac-ff50d9e00657';

@@ -12,16 +12,21 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/lib/pq"
 
 	"github.com/google/uuid"
 )
+
+type CompanyTags struct {
+	TagSize       string `json:"size"`
+	TagLocation   string `json:"location"`
+	TagInvestment string `json:"investment"`
+}
 
 type GetCompanyResponse struct {
 	ID      uuid.UUID   `json:"id"`
 	Name    string      `json:"name"`
 	FieldId uuid.UUID   `json:"fieldId"`
-	Tags    []uuid.UUID `json:"tags"`
+	Tags    CompanyTags `json:"tags"`
 }
 
 func GetCompany(w http.ResponseWriter, r *http.Request) {
@@ -46,7 +51,7 @@ func GetCompany(w http.ResponseWriter, r *http.Request) {
 		fmt.Sprintf(
 			qGetCompany, companyId,
 		),
-	).Scan(&company.Name, &company.FieldId, pq.Array(&company.Tags))
+	).Scan(&company.Name, &company.FieldId, &company.Tags.TagSize, &company.Tags.TagLocation, &company.Tags.TagInvestment)
 	if err != nil {
 		log.Printf("1702: %+v", err)
 		w.WriteHeader(http.StatusInternalServerError)

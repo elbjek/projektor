@@ -1,6 +1,23 @@
 CREATE DATABASE konsultant;
 \connect konsultant;
+
+
 CREATE TABLE company_fields (
+    id UUID UNIQUE NOT NULL PRIMARY KEY,
+    name varchar(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE tag_location (
+    id UUID UNIQUE NOT NULL PRIMARY KEY,
+    name varchar(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE tag_size (
+    id UUID UNIQUE NOT NULL PRIMARY KEY,
+    name varchar(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE tag_investment (
     id UUID UNIQUE NOT NULL PRIMARY KEY,
     name varchar(50) UNIQUE NOT NULL
 );
@@ -26,16 +43,12 @@ CREATE TABLE companies (
     owner_id UUID NOT NULL REFERENCES users (id) ON DELETE CASCADE,
     name varchar(60) NOT NULL,
     field_id UUID NOT NULL REFERENCES company_fields (id),
-    tags UUID[] NOT NULL
+    t_size UUID REFERENCES tag_size (id) ON DELETE SET NULL,
+    t_location UUID REFERENCES tag_location (id) ON DELETE SET NULL,
+    t_investment UUID REFERENCES tag_investment (id) ON DELETE SET NULL
 );
 
 ALTER TABLE users ADD CONSTRAINT users_company_id_fkey FOREIGN KEY (company_id) REFERENCES companies (id) ON DELETE SET NULL;
-
-
-CREATE TABLE tags (
-    id UUID UNIQUE NOT NULL PRIMARY KEY,
-    name varchar(40) UNIQUE NOT NULL 
-);
 
 CREATE TABLE applications (
     id UUID UNIQUE NOT NULL PRIMARY KEY,

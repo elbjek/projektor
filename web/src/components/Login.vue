@@ -41,9 +41,15 @@ export default {
             var config = {
                  headers: {'Access-Control-Allow-Origin': '*'}
             };
-            this.axios({ method: "POST", "url": "http://localhost:80/login", 
-            "data": this.inputs, "headers": { "content-type": "application/json" }, config}).then(result => {
-                this.response = result.data;
+            this.axios({ method: "POST", "url": "http://localhost:8081/login", 
+            "data": this.fields, "headers": { "content-type": "application/json" }, config}).then(result => {
+                this.response = result;
+                localStorage.setItem(
+                    result.data.name,
+                    result.data.jwt
+                )
+                console.log(result.data.redirect)
+                this.$router.push(result.data.redirect)
             }, error => {
                 console.error(error);
             });

@@ -6,6 +6,7 @@ import (
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 type ErrorResponse struct {
@@ -19,21 +20,25 @@ func RunAPI() {
 
 	handlers.AllowedOrigins([]string{"*"})
 
-	// c := cors.New(cors.Options{
-	// 	AllowedOrigins: []string{
-	// 		"http://localhost:8080/*",
-	// 		"http://localhost:8080",
-	// 	},
-	// 	// AllowedHeaders: []string{"location"},
-	// })
-	// handler := c.Handler(router)
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{
+			"http://localhost:8080/*",
+			"http://localhost:8080",
+		},
+		AllowedHeaders: []string{"Origin", "Accept", "Content-Type", "X-Requested-With", "Authorization"},
+		AllowedMethods: []string{"POST", "PUT", "GET", "PATCH", "OPTIONS", "HEAD", "DELETE"},
+		Debug:          true,
+	})
 
 	router.HandleFunc("/login", Login).Methods("POST")
 	router.HandleFunc("/users/v1/user", GetUser).Methods("GET")
 	router.HandleFunc("/users/v1/user/{userId}/companies", GetUserCompanies).Methods("GET")
 	router.HandleFunc("/companies/v1/company/{companyId}", GetCompany).Methods("GET")
 
-	log.Fatal(http.ListenAndServe(":8081", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
+	handler := c.Handler(router)
+	log.Fatal(http.ListenAndServe(":8081", handler))
+
+	// log.Fatal(http.ListenAndServe(":8081", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
 
 func JsonMiddleware(next http.Handler) http.Handler {
