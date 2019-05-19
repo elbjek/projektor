@@ -2,7 +2,7 @@
     <div class="navigation-wrapper">
        <div class="navigation max-width">
         <ul class="right">
-            <li><a class="mail first" href="">Pocetna</a></li>
+            <li><a class="mail" href="">Pocetna</a></li>
             <li><a class="mail" href="/calls">Pozivi</a></li>
             <li><a class="mail" href="/knowledge">Znanje</a></li>
             <li><a class="mail" href="/happenings">Dogadjaji</a></li>

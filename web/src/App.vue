@@ -3,6 +3,7 @@
     <navigation v-if="!hasToken"></navigation>
     <loggednav v-else></loggednav>
     <router-view></router-view>
+    <bot></bot>
     <MyFooter></MyFooter>
   </div>
 </template>
@@ -11,6 +12,7 @@
 import navigation from'./components/shared/Navigation.vue'
 import MyFooter from './components/shared/Footer.vue'
 import loggednav from './components/LoggedNav.vue'
+import bot from './components/bot.vue'
     /*es-lint-disable*/
 
 export default {
@@ -18,7 +20,8 @@ export default {
   components: {
    navigation,
    MyFooter,
-   loggednav
+   loggednav,
+   bot
   },
   data(){
     return{

@@ -88,6 +88,10 @@
          <button class="btn">Lorem</button>
       </div>
    </div>
+	<div class="bot">
+
+		<img src="../assets/icons/GGG.gif" alt="">
+	</div>
    <div class="apply">
       <a href="/login">Prijavi se</a>
    </div>
@@ -104,12 +108,16 @@ export default {
 <style lang="scss" scoped>
 
 	.main-layout{
+		.bot{
+			padding:20px;
+			border-bottom:2px solid $f4f4f4;
+		}
 		.apply{
-			background-color:white;
-			font-weight: 900;
-			font-size: 25px;
-			color:#048BA8;
-			height:300px;
+		background-color: white;
+    font-weight: 900;
+    font-size: 25px;
+    color: #048BA8;
+    height: 150px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
