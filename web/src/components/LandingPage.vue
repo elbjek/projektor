@@ -10,11 +10,11 @@
       </div>
    </div>
    <div class="desc max-width">
-      <h5>Imaš malo/srednje preduzeće ili startap u razvoju? </h5>
-      <h5>Potrebna su ti sredstva da unaprediš svoje poslovanje? </h5>
-      <h5>Vidiš EU fondove kao mogućnost, ali do sada nisi imao priliku da apliciraš?
-         Ili, nisi uspeo da pronađeš relevantne informacije?</h5>
-      <p>Na pravom si mestu, jer mi Stvaramo uslove za lakši pristup sredstvima EU malim i srednjim preduzećima.</p>
+		<h5>Imaš svoj biznis? 
+			<br> Želiš ga unaprediti? 
+			<br>Potrebna su ti sredstva?
+			<br>EU fondovi ti mogu pomoći!</h5>
+      <p>Savladaj prepreke!</p>
    </div>
    <div class="data-wrapper">
       <h2>Šta nudimo?</h2>
@@ -122,24 +122,21 @@ export default {
 			}
 		}
 		.desc{
-			text-align:left;
+			text-align:center;
 			padding:60px 0px;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items:center;
 			h5{
 				margin:20px 0px;
 				display: flex;
 				align-items: center;
-				&::before{
-				content: '';
-				height: 10px;
-				width: 10px;
-				border-radius: 20px;
-				background-color: #8cc63f;
-				margin-right: 10px;
-				}
+
 			}
 			p{
 				font-weight: 900;
-				font-size: 24px;
+				font-size: 34px;
 				padding:0px;
 				color:#8cc63f;
 			}

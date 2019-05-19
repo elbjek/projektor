@@ -7,7 +7,7 @@
             <form method="POST" action="/login"  v-on:submit.prevent="formSubmit">
                 <input type="text" v-model="fields.username" value="gliga" placeholder="username" >
                 <input type="password" v-model="fields.password" value="123qwe" placeholder="password" >
-                <button>Submit</button>
+                <button class="btn">Submit</button>
             </form>
         </div>
       </div>
@@ -59,11 +59,19 @@ export default {
         align-items:center;
         justify-content: center;
         .form{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
             flex-direction: column;
-            background-color:white;
-            padding:40px;
-            border-radius:10px;
+            background-color: white;
+            padding: 40px;
+            width: 40%;
+            height: 500px;
+            align-items: center;
+            justify-content: center;
             .form-header{
                 padding:20px;
                 h2{
@@ -85,12 +93,15 @@ export default {
                     }
                 }
                 button{
-                    background-color:#f2a755;
-                    border:none;
-                    padding:10px;
-                    border-radius:8px;
+                    background-color: #3483ca;
+                    border: none;
+                    padding: 10px;
+                    border-radius: 8px;
                     font-weight: 900;
-                    margin-top:30px;
+                    margin-top: 30px;
+                    width: 50%;
+                    margin: 0 auto;
+                    color: white;
                     &:focus{
                         outline: none;
                         border:none;

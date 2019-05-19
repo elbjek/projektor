@@ -7,7 +7,6 @@
         <ul class="right">
             <li><a class="mail" href=""><img src="../assets/icons/mail.svg" alt=""></a></li>
             <li><a class="username"  v-bind:href="'/user/'+ userData.ID"><img src="../assets/icons/user.svg" alt="">{{userData.firstname}} {{userData.lastname}}</a></li>
-            <!-- <li><a class="login" v-bind="show" @click="openModal()" href="#">Uloguj se</a></li> -->
             <li><a class="logout" href="" @click="logout()">Odjavi se</a></li>            
         </ul>
        </div> 

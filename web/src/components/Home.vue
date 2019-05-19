@@ -20,7 +20,7 @@
             <div class="center-content">
                 <div class="card">
                     <div class="img">
-                        <img src="../assets/images/4.jpg"  class="card-img-top" alt="...">
+                        <img src="../assets/images/11.jpg"  class="card-img-top" alt="...">
                     </div>
                 <div class="card-body">
                     <h5 class="card-title">Nova budžetska rešenja – odgovor na izazove u prostoru slobode, bezbednosti i pravde?</h5>
@@ -31,7 +31,7 @@
                 </div>
                  <div class="card">
                     <div class="img">
-                        <img src="../assets/images/kon.png"  class="card-img-top" alt="...">
+                        <img src="../assets/images/12.jpg"  class="card-img-top" alt="...">
                     </div>
                 <div class="card-body">
                     <h5 class="card-title">Poziv za konkurs</h5>
@@ -42,7 +42,7 @@
                 </div>
                  <div class="card">
                     <div class="img">
-                        <img src="../assets/images/6.jpg"  class="card-img-top" alt="...">
+                        <img src="../assets/images/9.jpg"  class="card-img-top" alt="...">
                     </div>
                 <div class="card-body">
                     <h5 class="card-title">EU Summit 2019</h5>
@@ -109,6 +109,12 @@ export default {
                 justify-content: center;
                 align-items: center;                
             }
+        }
+        .btn-primary{
+            background-color:#3483ca;
+            color:white;
+            font-weight: 900;
+            padding:8px 24px;
         }
     }
 }

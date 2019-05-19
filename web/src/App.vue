@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navigation v-if="!hasToken"></navigation>
-    <loggednav v-if="hasToken"></loggednav>
+    <loggednav v-else></loggednav>
     <router-view></router-view>
     <MyFooter></MyFooter>
   </div>

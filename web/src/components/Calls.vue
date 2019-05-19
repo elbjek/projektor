@@ -81,13 +81,13 @@ export default {
     min-height:100vh;
     background-color:#f4f4f4;
    h2{
-       padding:80px 80px 40px 0px;
+        padding: 40px 40px 20px 20px;
        text-align: left;
        font-weight: 900;
    }
    .calls{
        display: grid;
-       grid-template-columns: 100%;
+       grid-template-columns: 50% 50%;
        grid-gap: 20px;
         p{
             display: -webkit-box;
