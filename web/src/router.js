@@ -2,7 +2,7 @@
 import VueRouter from 'vue-router';
 
 import login from './components/Login.vue'
-// import userpage from './components/userpage.vue'
+import user from './components/Profile.vue'
 import landing from './components/LandingPage.vue'
 
 export default new VueRouter({
@@ -11,6 +11,6 @@ export default new VueRouter({
 
         {path:'/',component:landing},
         {path:'/login', component:login},
-        // {path:'/userpage', component:userpage}
+        {path:'/user/:id', component:user, props:true}
     ]
 });
