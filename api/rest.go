@@ -27,7 +27,7 @@ func RunAPI() {
 		},
 		AllowedHeaders: []string{"Origin", "Accept", "Content-Type", "X-Requested-With", "Authorization"},
 		AllowedMethods: []string{"POST", "PUT", "GET", "PATCH", "OPTIONS", "HEAD", "DELETE"},
-		Debug:          true,
+		// Debug:          true,
 	})
 
 	router.HandleFunc("/login", Login).Methods("POST")

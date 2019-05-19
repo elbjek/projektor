@@ -23,10 +23,14 @@ type CompanyTags struct {
 }
 
 type GetCompanyResponse struct {
-	ID      uuid.UUID   `json:"id"`
-	Name    string      `json:"name"`
-	FieldId uuid.UUID   `json:"fieldId"`
-	Tags    CompanyTags `json:"tags"`
+	ID        uuid.UUID   `json:"id"`
+	PIB       int         `json:"pib"`
+	MIB       int         `json:"mib"`
+	Name      string      `json:"name"`
+	CreatedAt string      `json:"established"`
+	Employees int         `json:"employees"`
+	FieldId   uuid.UUID   `json:"fieldId"`
+	Tags      CompanyTags `json:"tags"`
 }
 
 func GetCompany(w http.ResponseWriter, r *http.Request) {
@@ -51,7 +55,7 @@ func GetCompany(w http.ResponseWriter, r *http.Request) {
 		fmt.Sprintf(
 			qGetCompany, companyId,
 		),
-	).Scan(&company.Name, &company.FieldId, &company.Tags.TagSize, &company.Tags.TagLocation, &company.Tags.TagInvestment)
+	).Scan(&company.Name, &company.CreatedAt, &company.Employees, &company.FieldId, &company.Tags.TagSize, &company.Tags.TagLocation, &company.Tags.TagInvestment, &company.PIB, &company.MIB)
 	if err != nil {
 		log.Printf("1702: %+v", err)
 		w.WriteHeader(http.StatusInternalServerError)
