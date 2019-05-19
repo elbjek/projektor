@@ -88,6 +88,6 @@ CREATE TABLE calls (
     title varchar(100) NOT NULL,
     deadline timestamp without time zone NOT NULL,
     program varchar(20) NOT NULL,
-    description text NOT NULL,
+    description text[] NOT NULL,
     included_checks UUID[] NOT NULL
 )

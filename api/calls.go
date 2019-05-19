@@ -37,7 +37,7 @@ type GetCallResponse struct {
 	Title       string    `json:"title"`
 	Deadline    string    `json:"deadline"`
 	Program     string    `json:"program"`
-	Description string    `json:"description"`
+	Description []string  `json:"description"`
 	Checks      []Check   `json:"checks"`
 }
 
@@ -64,7 +64,7 @@ func GetCall(w http.ResponseWriter, r *http.Request) {
 		fmt.Sprintf(
 			qGetCall, callId,
 		),
-	).Scan(&call.Title, &call.Deadline, &call.Program, &call.Description, pq.Array(&checkList))
+	).Scan(&call.Title, &call.Deadline, &call.Program, pq.Array(&call.Description), pq.Array(&checkList))
 	if err != nil {
 		log.Printf("1802: %+v", err)
 		w.WriteHeader(http.StatusInternalServerError)
