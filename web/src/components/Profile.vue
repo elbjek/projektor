@@ -124,7 +124,7 @@ export default {
             var token = localStorage.getItem('token');
             var userId = this.$router.currentRoute.path.slice(6);
             this.axios(
-                {method: "GET", "url": "http://localhost:8081/users/v1/user/",
+                {method: "GET", "url": "http://localhost:8081/users/v1/user",
                 "headers": { "Authorization": 'Bearer ' + token},
                 config
                 })
