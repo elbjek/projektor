@@ -77,13 +77,17 @@ CREATE TABLE applications (
     to_date timestamp without time zone DEFAULT timezone('utc'::text, now())
 );
 
-CREATE TABLE checklist (
-    id UUID UNIQUE NOT NULL PRIMARY KEY,
-    included_checks UUID[] NOT NULL
-);
-
 CREATE TABLE checks (
     id UUID UNIQUE NOT NULL PRIMARY KEY,
     description text NOT NULL,
     assist text NOT NULL
 );
+
+CREATE TABLE calls (
+    id UUID UNIQUE NOT NULL PRIMARY KEY,
+    title varchar(100) NOT NULL,
+    deadline timestamp without time zone NOT NULL,
+    program varchar(20) NOT NULL,
+    description text NOT NULL,
+    included_checks UUID[] NOT NULL
+)
