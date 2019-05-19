@@ -20,6 +20,7 @@ import (
 
 type Check struct {
 	ID          uuid.UUID `json:"id"`
+	PreChecked  bool      `json:"checked"`
 	Description string    `json:"description"`
 	Assist      string    `json:"assist_text"`
 }

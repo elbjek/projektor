@@ -6,7 +6,7 @@ const (
 	qLocationIDToName   = "SELECT name FROM tag_location WHERE id='%s';"
 	qSizeIDToName       = "SELECT name FROM tag_size WHERE id='%s';"
 	qInvestmentIDToName = "SELECT name FROM tag_investment WHERE id='%s';"
-	qGetCheck           = "SELECT description, assist FROM checks WHERE id='%s';"
+	qGetCheck           = "SELECT pre_checked, description, assist FROM checks WHERE id='%s';"
 )
 
 const (

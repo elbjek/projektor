@@ -54,7 +54,7 @@ func TagInvestmentIDToName(id string) (name string) {
 
 func GetCheck(id uuid.UUID) (check Check) {
 	check.ID = id
-	err := db.QueryRow(fmt.Sprintf(qGetCheck, id)).Scan(&check.Description, &check.Assist)
+	err := db.QueryRow(fmt.Sprintf(qGetCheck, id)).Scan(&check.PreChecked, &check.Description, &check.Assist)
 	if err != nil {
 		log.Println(err)
 		return

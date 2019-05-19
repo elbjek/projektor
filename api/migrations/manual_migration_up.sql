@@ -79,6 +79,7 @@ CREATE TABLE applications (
 
 CREATE TABLE checks (
     id UUID UNIQUE NOT NULL PRIMARY KEY,
+    pre_checked boolean DEFAULT false,
     description text NOT NULL,
     assist text NOT NULL
 );

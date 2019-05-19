@@ -156,24 +156,23 @@ UPDATE users SET company_id='81adc65e-8455-4752-8b87-0c6c8fcb604a' WHERE id='8d5
 UPDATE users SET company_id='18a32fa4-eee1-48ed-bc2c-0475f24f7a9d' WHERE id='8616e6fb-b46c-4de4-8986-e94cbbc2098b';
 
 
-INSERT INTO checks (id, description, assist)  VALUES
-('977bec85-3c91-467e-bc5b-00f2513ae198', 'Preduzeće je registrovano u APR', ''),
-('ea425c27-775e-4e56-9144-27a3d5792ddb', 'Malo ili srednje preduzeće', ''),
-('f37318d4-7b76-42ce-a065-e7fa050f0207', 'Preduzeće je registrovano u opštini izovan Vojvodine i Beograda', ''),
-('088fc12b-2a59-4d92-befa-c9cf1db97c02', 'Preduzeće obavlja delatnost koja ne spada u primarnu poljoprivrednu proizvodnju, proizvodnju kontrolisanih supstanci (duvan, alkohol, oružje i vojna oprema, organizovanje igara na sreću, promet bilo kojih supstanci regulisanih zakonom)', ''),
-('f5042094-6b91-4d45-ac39-1a664e3e0422', 'Preduzeće je pretežno u privatnom vlasništvu', ''),
-('1b76c01d-819c-45b5-837f-e22e24bb6c58', 'Preduzeće je pretežno u domaćem vlasništvu', ''),
-('9da5a482-acf2-44aa-904e-93ba86f152f3', 'Preduzeće ima više od jednog zaposlenog', ''),
-('ae998429-e1b7-4b28-96a2-84dbdec912cd', 'Preduzeće je ostvarilo profit u prethodnoj kalendarskoj godini', ''),
-('f01d943c-df86-40d4-a291-1e233e712a05', 'Preduzeće nije u stečaju', ''),
-('a95c37b4-659d-4756-9156-9f0495f08d7d', 'Preduzeće nema neisplaćena dugovanja za porez', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Kontaktiraj lokalnu filijalu poreske uprave putem linka  http://www.purs.gov.rs/kontakt/adresar.html, ili pristupi portalu ePorez http://www.poreskauprava.gov.rs/e-porezi  i izmiri svoja porezna dugovanja, nakon čega možeš aplicirati'),
-('072d3a65-f47b-44e2-8d97-9071cead8464', 'Preduzeće nije korisnik sredstava od drugih donatoru za isti projekat', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Pogledajt druge pozive na linku.'),
-('1de98e78-0303-43ad-a27d-77ee0146fc6d', 'Preduzeće poseduje prostor ili ima ugovor o zakupu na duži rok', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Pogledajt povoljne prilike za kreditiranje uz garancije Evropskog investicionog fonda u okviru COSME programa koje nudi Societe Generale Banka https://www.societegenerale.rs/cosme-program/ (sponzored)'),
-('5585e54f-e83a-4557-a111-cb29a3172747', 'Preduzeće će opremu pribavljenu tokom ovog projekta koristiti u svrhu obavljanja sadašnje delatnosti', ''),
-('afa844d6-7d9b-4f05-8eea-757293a18bfa', 'Zaposleni poseduju iskostvo i ekspertizu za realizaciju projekta', 'oje preduzeće može imati teškoće u ispunjavanju uslova, kao i realizaciju projekta. Preporučujemo da iskoristiš prilike za obuke Ministarstva privrede https://www.preduzetnistvo.gov.rs/otvoreni-programi/ ili pronađeš relevantne informacije u našoj Bazi znanja (link)'),
-('2a822628-8ac4-4446-b15d-76043e068009', 'Preduzeće poseduje dovoljno sredstava da obezbedi nedostajući deo od 30% vrednosti projekta', 'Iskoristi prilike povoljnih komercijalnih kredita Societe Generale banke https://www.societegenerale.rs/privreda/ (sponzored)'),
-('a54e4e84-6253-4b31-9c15-f21508cc521e', 'Preduzeće ima dovoljno iskustva u razvoju projekata i apliciranju za EU fondove', 'Možeš iskoristiti prilike za unapređenje svojih veština kroz pristup našoj Bazi znanja (link), prisustvovanje treningu u okviru Događaja (link) ili angažovanjem konsultanta iz naše baze Konsultanti (link), ili apliciranjem za savetodavnu podršku Evropske banke za obnovu i razvoj https://europa.rs/otvoren-poziv-ebrd-za-savetodavnu-podrsku/');
-
+INSERT INTO checks (id, pre_checked, description, assist)  VALUES
+('977bec85-3c91-467e-bc5b-00f2513ae198', true, 'Preduzeće je registrovano u APR', ''),
+('ea425c27-775e-4e56-9144-27a3d5792ddb', true, 'Malo ili srednje preduzeće', ''),
+('f37318d4-7b76-42ce-a065-e7fa050f0207', true, 'Preduzeće je registrovano u opštini izovan Vojvodine i Beograda', ''),
+('088fc12b-2a59-4d92-befa-c9cf1db97c02', true, 'Preduzeće obavlja delatnost koja ne spada u primarnu poljoprivrednu proizvodnju, proizvodnju kontrolisanih supstanci (duvan, alkohol, oružje i vojna oprema, organizovanje igara na sreću, promet bilo kojih supstanci regulisanih zakonom)', ''),
+('f5042094-6b91-4d45-ac39-1a664e3e0422', true, 'Preduzeće je pretežno u privatnom vlasništvu', ''),
+('1b76c01d-819c-45b5-837f-e22e24bb6c58', true, 'Preduzeće je pretežno u domaćem vlasništvu', ''),
+('9da5a482-acf2-44aa-904e-93ba86f152f3', false, 'Preduzeće ima više od jednog zaposlenog', ''),
+('ae998429-e1b7-4b28-96a2-84dbdec912cd', false, 'Preduzeće je ostvarilo profit u prethodnoj kalendarskoj godini', ''),
+('f01d943c-df86-40d4-a291-1e233e712a05', false, 'Preduzeće nije u stečaju', ''),
+('a95c37b4-659d-4756-9156-9f0495f08d7d', false, 'Preduzeće nema neisplaćena dugovanja za porez', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Kontaktiraj lokalnu filijalu poreske uprave putem linka  http://www.purs.gov.rs/kontakt/adresar.html, ili pristupi portalu ePorez http://www.poreskauprava.gov.rs/e-porezi  i izmiri svoja porezna dugovanja, nakon čega možeš aplicirati'),
+('072d3a65-f47b-44e2-8d97-9071cead8464', false, 'Preduzeće nije korisnik sredstava od drugih donatoru za isti projekat', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Pogledajt druge pozive na linku.'),
+('1de98e78-0303-43ad-a27d-77ee0146fc6d', false, 'Preduzeće poseduje prostor ili ima ugovor o zakupu na duži rok', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Pogledajt povoljne prilike za kreditiranje uz garancije Evropskog investicionog fonda u okviru COSME programa koje nudi Societe Generale Banka https://www.societegenerale.rs/cosme-program/ (sponzored)'),
+('5585e54f-e83a-4557-a111-cb29a3172747', false, 'Preduzeće će opremu pribavljenu tokom ovog projekta koristiti u svrhu obavljanja sadašnje delatnosti', ''),
+('afa844d6-7d9b-4f05-8eea-757293a18bfa', false, 'Zaposleni poseduju iskostvo i ekspertizu za realizaciju projekta', 'oje preduzeće može imati teškoće u ispunjavanju uslova, kao i realizaciju projekta. Preporučujemo da iskoristiš prilike za obuke Ministarstva privrede https://www.preduzetnistvo.gov.rs/otvoreni-programi/ ili pronađeš relevantne informacije u našoj Bazi znanja (link)'),
+('2a822628-8ac4-4446-b15d-76043e068009', false, 'Preduzeće poseduje dovoljno sredstava da obezbedi nedostajući deo od 30% vrednosti projekta', 'Iskoristi prilike povoljnih komercijalnih kredita Societe Generale banke https://www.societegenerale.rs/privreda/ (sponzored)'),
+('a54e4e84-6253-4b31-9c15-f21508cc521e', false, 'Preduzeće ima dovoljno iskustva u razvoju projekata i apliciranju za EU fondove', 'Možeš iskoristiti prilike za unapređenje svojih veština kroz pristup našoj Bazi znanja (link), prisustvovanje treningu u okviru Događaja (link) ili angažovanjem konsultanta iz naše baze Konsultanti (link), ili apliciranjem za savetodavnu podršku Evropske banke za obnovu i razvoj https://europa.rs/otvoren-poziv-ebrd-za-savetodavnu-podrsku/');
 INSERT INTO calls (id, title, deadline, program, description, included_checks) VALUES
 (
     'ceb1f316-52a4-40a5-bf3e-8d0f5e3b0d52', 'EU PRO predstavlja poziv za dodelu bespovratnih sredstava preduzetnicima, mikro i malim preduzećima', '2019-06-24 14:00:00', 'eupro', '{"Razvojni program EU PRO održaće  informativne sesije o javnom pozivu za podršku preduzetnicima i preduzetnicama i mikro i malim preduzećima u periodu od 1. do 14. juna 2018. godine u Šapcu, Kragujevcu,  Kruševcu, Kraljevu, Novom Pazaru, Užicu, Smederevu, Zaječaru, Nišu i Leskovcu. Evropska unija (EU) je za ovu aktivnost usmerenu na povećanje konkurentnosti lokalne privrede u Regionu Šumadije i zapadne Srbije i Regionu Južne i istočne Srbije opredelila 4,5 miliona evra.",
