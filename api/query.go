@@ -1,7 +1,11 @@
 package main
 
 const (
-	qGetRoleId = "SELECT id FROM user_roles WHERE name='%s';"
+	qGetRoleId          = "SELECT id FROM user_roles WHERE name='%s';"
+	qFieldIDToName      = "SELECT name FROM company_fields WHERE id='%s';"
+	qLocationIDToName   = "SELECT name FROM tag_location WHERE id='%s';"
+	qSizeIDToName       = "SELECT name FROM tag_size WHERE id='%s';"
+	qInvestmentIDToName = "SELECT name FROM tag_investment WHERE id='%s';"
 )
 
 const (

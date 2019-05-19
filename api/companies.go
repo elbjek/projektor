@@ -29,7 +29,7 @@ type GetCompanyResponse struct {
 	Name      string      `json:"name"`
 	CreatedAt string      `json:"established"`
 	Employees int         `json:"employees"`
-	FieldId   uuid.UUID   `json:"fieldId"`
+	FieldId   string      `json:"fieldId"`
 	Tags      CompanyTags `json:"tags"`
 }
 
@@ -62,6 +62,11 @@ func GetCompany(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(ErrorResponse{1501, "Internal Server Error"})
 		return
 	}
+
+	company.FieldId = FieldIDToName(company.FieldId)
+	company.Tags.TagInvestment = TagInvestmentIDToName(company.Tags.TagInvestment)
+	company.Tags.TagLocation = TagLocationIDToName(company.Tags.TagLocation)
+	company.Tags.TagSize = TagSizeIDToName(company.Tags.TagSize)
 
 	json.NewEncoder(w).Encode(company)
 }

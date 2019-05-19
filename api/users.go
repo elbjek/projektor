@@ -48,7 +48,11 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 			qGetUser, user.ID,
 		),
 	).Scan(&user.Email, &user.Firstname, &user.Lastname, &e_eu_applied_before, &e_eu_funded_before, &e_eu_subsidy_before, &e_wrote_projects, &e_enlish_fluent, &e_edu_writing_projects, &e_edu_project_mngmt, &e_edu_financial_reporting, &e_edu_eu_standards, &e_edu_market_emerge)
-
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(ErrorResponse{1501, "Internal Server Error"})
+		return
+	}
 	user.ExperienceFlags = make(map[string]*UserFlags)
 	user.EducationFlags = make(map[string]*UserFlags)
 	user.ExperienceFlags["e_eu_applied_before"] = new(UserFlags)
@@ -90,12 +94,6 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	user.EducationFlags["e_edu_market_emerge"] = new(UserFlags)
 	user.EducationFlags["e_edu_market_emerge"].FieldName = "Izlazak na nova tržišta"
 	user.EducationFlags["e_edu_market_emerge"].Set = e_edu_market_emerge
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		json.NewEncoder(w).Encode(ErrorResponse{1501, "Internal Server Error"})
-		return
-	}
 
 	json.NewEncoder(w).Encode(user)
 }
