@@ -55,56 +55,6 @@
 						<button class="btn">Registruj se</button>
 					</div>
 				</div>
-			<div class="news-wrap max-width">
-				<div class="card" style="width: 18rem;">
-					<div class="img">
-						<img src="../assets/images/hero.jpg" class="card-img-top" alt="...">						
-					</div>
-					<div class="card-body">
-						<p class="card-title">Naslov 1</p>
-					</div>
-				</div>
-				<div class="card" style="width: 18rem;">
-					<div class="img">
-						<img src="../assets/images/hero.jpg" class="card-img-top" alt="...">						
-					</div>
-					<div class="card-body">
-						<p class="card-title">Naslov 2</p>
-					</div>
-				</div>
-				<div class="card" style="width: 18rem;">
-					<div class="img">
-						<img src="../assets/images/hero.jpg" class="card-img-top" alt="...">						
-					</div>
-					<div class="card-body">
-						<p class="card-title">Naslov 3</p>
-					</div>
-				</div>
-				<div class="card" style="width: 18rem;">
-					<div class="img">
-						<img src="../assets/images/hero.jpg" class="card-img-top" alt="...">						
-					</div>
-					<div class="card-body">
-						<p class="card-title">Naslov 4</p>
-					</div>
-				</div>
-				<div class="card" style="width: 18rem;">
-					<div class="img">
-						<img src="../assets/images/hero.jpg" class="card-img-top" alt="...">						
-					</div>
-					<div class="card-body">
-						<p class="card-title">Naslov 5</p>
-					</div>
-				</div>
-				<div class="card" style="width: 18rem;">
-					<div class="img">
-						<img src="../assets/images/hero.jpg" class="card-img-top" alt="...">						
-					</div>
-					<div class="card-body">
-						<p class="card-title">Naslov 6</p>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </template>
@@ -119,7 +69,7 @@ export default {
 
 	.main-layout{
 		.max-width{
-			width:1420px;
+			width:1240px;
 			margin:0 auto;
 		}
 		.hero-wrapper{

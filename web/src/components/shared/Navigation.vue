@@ -86,6 +86,7 @@ export default {
         .reg{
             background:white;
             margin-left:20px;
+            color:#384b60;
         }
     }
 }
