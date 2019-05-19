@@ -34,9 +34,6 @@ export default {
     }
   },
   methods:{
-    mounted(){
-        console.log(this.data)
-    },
     formSubmit(event) {
             var config = {
                  headers: {'Access-Control-Allow-Origin': '*'}

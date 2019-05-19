@@ -7,7 +7,6 @@
         <ul class="right">
             <li><a class="login" href="/login">Uloguj se</a></li>
             <!-- <li><a class="login" v-bind="show" @click="openModal()" href="#">Uloguj se</a></li> -->
-            
             <login v-if="show"></login>
             <li><a class="reg" href="">Registruj se</a></li>            
         </ul>
@@ -26,23 +25,17 @@ export default {
         return {
             show:false
         }
-    },
-    methods:{
-        // openModal(){
-        //     this.show = !this.show;
-        // }
-        // mounted () {
-        // this.axios
-        // .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-        // .then(response => (this.info = response))
-        // }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.max-width{
+    width:1240px;
+    margin:0 auto;
+}
 .navigation-wrapper{
-    background:#999999;
+    background:#048BA8;
     display:flex;
     padding:20px;
 }
@@ -55,7 +48,7 @@ export default {
         li{
             list-style-type: none;
             a{
-                color:#ffffff;
+                color:white;
                 &:hover{
                     border-bottom:none;
                     text-decoration: none;
@@ -78,6 +71,7 @@ export default {
                     margin:20px;
                     font-size:14px;
                     font-weight: 900;
+                    color:white
                 }
             }
         }
@@ -86,18 +80,15 @@ export default {
         }
         .login, .reg{
             padding:8px 24px;
-            border:3px solid #f2a755;
+            border:3px solid white;
             border-radius:20px;
         }
         .reg{
-            background:#f2a755;
-            color:white;
+            background:white;
             margin-left:20px;
+            color:#384b60;
         }
     }
 }
-.max-width{
-    width:1420px;
-    margin:0 auto;
-}
+
 </style>
