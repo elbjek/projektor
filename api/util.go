@@ -51,3 +51,13 @@ func TagInvestmentIDToName(id string) (name string) {
 	}
 	return name
 }
+
+func GetCheck(id uuid.UUID) (check Check) {
+	check.ID = id
+	err := db.QueryRow(fmt.Sprintf(qGetCheck, id)).Scan(&check.Description, &check.Assist)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	return check
+}

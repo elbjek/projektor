@@ -6,6 +6,7 @@ const (
 	qLocationIDToName   = "SELECT name FROM tag_location WHERE id='%s';"
 	qSizeIDToName       = "SELECT name FROM tag_size WHERE id='%s';"
 	qInvestmentIDToName = "SELECT name FROM tag_investment WHERE id='%s';"
+	qGetCheck           = "SELECT description, assist FROM checks WHERE id='%s';"
 )
 
 const (
@@ -14,4 +15,6 @@ const (
 	qGetUserUuidAndHash = "SELECT id, password FROM users WHERE username='%s';"
 	qGetUserCompanies   = "SELECT id, name FROM companies WHERE owner_id='%s';"
 	qGetCompany         = "SELECT name, created_at, employees, field_id, t_size, t_location, t_investment, t_pib, t_mib FROM companies WHERE id='%s';"
+	qGetCall            = "SELECT title, deadline, program, description, included_checks FROM calls WHERE id='%s';"
+	qGetCalls           = "SELECT id, title, deadline, program, description FROM calls;"
 )

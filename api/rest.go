@@ -34,6 +34,8 @@ func RunAPI() {
 	router.HandleFunc("/users/v1/user", GetUser).Methods("GET")
 	router.HandleFunc("/users/v1/user/{userId}/companies", GetUserCompanies).Methods("GET")
 	router.HandleFunc("/companies/v1/company/{companyId}", GetCompany).Methods("GET")
+	router.HandleFunc("/calls/v1/call/{callId}", GetCall).Methods("GET")
+	router.HandleFunc("/calls/v1/calls", GetCalls).Methods("GET")
 
 	handler := c.Handler(router)
 	log.Fatal(http.ListenAndServe(":8081", handler))
