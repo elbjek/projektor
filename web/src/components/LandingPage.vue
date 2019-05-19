@@ -91,6 +91,10 @@
 	<div class="bot">
 
 		<img src="../assets/icons/GGG.gif" alt="">
+		<div class="test">
+
+
+		</div>
 	</div>
    <div class="apply">
       <a href="/login">Prijavi se</a>
@@ -110,7 +114,22 @@ export default {
 	.main-layout{
 		.bot{
 			padding:20px;
-			border-bottom:2px solid $f4f4f4;
+			border-bottom:2px solid #f4f4f4;
+			position: relative;
+			.test{
+				height:100%;
+				width:100%;
+				position: absolute;
+				top:0;
+				right:0;
+							/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#048ba8+0,ffffff+11,ffffff+87,a1dbff+100 */
+background: #048ba8; /* Old browsers */
+background: -moz-linear-gradient(top,  #048ba8 0%, rgba(255,255,255,0) 11%, rgba(255,255,255,0) 87%, #a1dbff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #048ba8 0%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 87%,#a1dbff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #048ba8 0%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 87%,#a1dbff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#048ba8', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
+
+			}
 		}
 		.apply{
 		background-color: white;
@@ -261,6 +280,7 @@ export default {
 				align-items: flex-start;
 				height: 100%;
 				padding-right:40px;
+				text-align: left;
 				h3{
 					font-size:55px;
 					font-weight: 900;
