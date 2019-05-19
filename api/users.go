@@ -8,6 +8,7 @@ Prefix: /users/v1
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -167,6 +168,7 @@ func GetUserCompanies(w http.ResponseWriter, r *http.Request) {
 		),
 	).Scan(&company.ID, &company.Name)
 	if err != nil {
+		log.Println(err)
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(ErrorResponse{1601, "User is not owner of any company object"})
 		return

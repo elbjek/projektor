@@ -154,3 +154,37 @@ INSERT INTO companies (id, owner_id, name, created_at, employees, field_id, t_si
 UPDATE users SET company_id='67f8f522-c1f5-4e08-b9d4-8884a21935e2' WHERE id='c9b207f9-1b01-4653-95f0-2df358fc0e3e';
 UPDATE users SET company_id='81adc65e-8455-4752-8b87-0c6c8fcb604a' WHERE id='8d597f8e-8f2b-4cb1-88ac-ff50d9e00657';
 UPDATE users SET company_id='18a32fa4-eee1-48ed-bc2c-0475f24f7a9d' WHERE id='8616e6fb-b46c-4de4-8986-e94cbbc2098b';
+
+
+CREATE TABLE checklist (
+    id UUID UNIQUE NOT NULL PRIMARY KEY,
+    included_checks UUID[] NOT NULL
+);
+
+CREATE TABLE checks (
+    id UUID UNIQUE NOT NULL PRIMARY KEY,
+    description text NOT NULL,
+    assist text NOT NULL
+);
+
+INSERT INTO checks (id, description, assist)  VALUES
+('977bec85-3c91-467e-bc5b-00f2513ae198', 'Preduzeće je registrovano u APR', ''),
+('ea425c27-775e-4e56-9144-27a3d5792ddb', 'Malo ili srednje preduzeće', ''),
+('f37318d4-7b76-42ce-a065-e7fa050f0207', 'Preduzeće je registrovano u opštini izovan Vojvodine i Beograda', ''),
+('088fc12b-2a59-4d92-befa-c9cf1db97c02', 'Preduzeće obavlja delatnost koja ne spada u primarnu poljoprivrednu proizvodnju, proizvodnju kontrolisanih supstanci (duvan, alkohol, oružje i vojna oprema, organizovanje igara na sreću, promet bilo kojih supstanci regulisanih zakonom)', ''),
+('f5042094-6b91-4d45-ac39-1a664e3e0422', 'Preduzeće je pretežno u privatnom vlasništvu', ''),
+('1b76c01d-819c-45b5-837f-e22e24bb6c58', 'Preduzeće je pretežno u domaćem vlasništvu', ''),
+('9da5a482-acf2-44aa-904e-93ba86f152f3', 'Preduzeće ima više od jednog zaposlenog', ''),
+('ae998429-e1b7-4b28-96a2-84dbdec912cd', 'Preduzeće je ostvarilo profit u prethodnoj kalendarskoj godini', ''),
+('f01d943c-df86-40d4-a291-1e233e712a05', 'Preduzeće nije u stečaju', ''),
+('a95c37b4-659d-4756-9156-9f0495f08d7d', 'Preduzeće nema neisplaćena dugovanja za porez', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Kontaktiraj lokalnu filijalu poreske uprave putem linka http://www.purs.gov.rs/kontakt/adresar.html, ili pristupi portalu ePorez http://www.poreskauprava.gov.rs/e-porezi  i izmiri svoja porezna dugovanja, nakon čega možeš aplicirati'),
+('072d3a65-f47b-44e2-8d97-9071cead8464', 'Preduzeće nije korisnik sredstava od drugih donatoru za isti projekat', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Pogledajt druge pozive na linku.'),
+('1de98e78-0303-43ad-a27d-77ee0146fc6d', 'Preduzeće poseduje prostor ili ima ugovor o zakupu na duži rok', 'Tvoje preduzeće ne ispunjava kriterijume za ovaj poziv. Pogledajt povoljne prilike za kreditiranje uz garancije Evropskog investicionog fonda u okviru COSME programa koje nudi Societe Generale Banka https://www.societegenerale.rs/cosme-program/ (sponzored)'),
+('5585e54f-e83a-4557-a111-cb29a3172747', 'Preduzeće će opremu pribavljenu tokom ovog projekta koristiti u svrhu obavljanja sadašnje delatnosti', ''),
+('afa844d6-7d9b-4f05-8eea-757293a18bfa', 'Zaposleni poseduju iskostvo i ekspertizu za realizaciju projekta', 'oje preduzeće može imati teškoće u ispunjavanju uslova, kao i realizaciju projekta. Preporučujemo da iskoristiš prilike za obuke Ministarstva privrede https://www.preduzetnistvo.gov.rs/otvoreni-programi/ ili pronađeš relevantne informacije u našoj Bazi znanja (link)'),
+('2a822628-8ac4-4446-b15d-76043e068009', 'Preduzeće poseduje dovoljno sredstava da obezbedi nedostajući deo od 30% vrednosti projekta', 'Iskoristi prilike povoljnih komercijalnih kredita Societe Generale banke https://www.societegenerale.rs/privreda/ (sponzored)'),
+('a54e4e84-6253-4b31-9c15-f21508cc521e', 'Preduzeće ima dovoljno iskustva u razvoju projekata i apliciranju za EU fondove', 'Možeš iskoristiti prilike za unapređenje svojih veština kroz pristup našoj Bazi znanja (link), prisustvovanje treningu u okviru Događaja (link) ili angažovanjem konsultanta iz naše baze Konsultanti (link), ili apliciranjem za savetodavnu podršku Evropske banke za obnovu i razvoj https://europa.rs/otvoren-poziv-ebrd-za-savetodavnu-podrsku/');
+
+INSERT INTO checklist (id, included_checks) VALUES 
+('cc2f5eec-9dae-44a4-8656-310a43cbe239', '{"977bec85-3c91-467e-bc5b-00f2513ae198", "ea425c27-775e-4e56-9144-27a3d5792ddb", "f37318d4-7b76-42ce-a065-e7fa050f0207", "088fc12b-2a59-4d92-befa-c9cf1db97c02", "f5042094-6b91-4d45-ac39-1a664e3e0422", "1b76c01d-819c-45b5-837f-e22e24bb6c58", "9da5a482-acf2-44aa-904e-93ba86f152f3", "ae998429-e1b7-4b28-96a2-84dbdec912cd", "f01d943c-df86-40d4-a291-1e233e712a05", "a95c37b4-659d-4756-9156-9f0495f08d7d", "072d3a65-f47b-44e2-8d97-9071cead8464", "1de98e78-0303-43ad-a27d-77ee0146fc6d", "5585e54f-e83a-4557-a111-cb29a3172747", "afa844d6-7d9b-4f05-8eea-757293a18bfa", "2a822628-8ac4-4446-b15d-76043e068009", "a54e4e84-6253-4b31-9c15-f21508cc521e"}');
+
