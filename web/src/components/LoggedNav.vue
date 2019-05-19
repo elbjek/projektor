@@ -2,7 +2,7 @@
     <div class="navigation-wrapper">
        <div class="navigation max-width">
             <ul class="logo">
-            <li><a href="/home">Logo</a></li>
+            <li><a href="/home"><img src="../assets/logo.png"></a></li>
         </ul>
         <ul class="right">
             <li><a class="mail" href=""><img src="../assets/icons/mail.svg" alt=""></a></li>

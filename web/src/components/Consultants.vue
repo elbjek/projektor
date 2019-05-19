@@ -1,7 +1,7 @@
 <template>
     <div class="main-layout">
        <homenav></homenav>
-       <img src="../assets/images/konsultanti_mock.png" width="50%" alt="">
+       <img src="../assets/images/konsultanti_mock.png" width="90%" alt="">
       </div>
 </template>
 
