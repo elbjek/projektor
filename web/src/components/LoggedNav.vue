@@ -2,7 +2,7 @@
     <div class="navigation-wrapper">
        <div class="navigation max-width">
             <ul class="logo">
-            <li><a href="/">Logo</a></li>
+            <li><a href="/home">Logo</a></li>
         </ul>
         <ul class="right">
             <li><a class="mail" href=""><img src="../assets/icons/mail.svg" alt=""></a></li>
@@ -39,13 +39,11 @@ export default {
                 })
                 .then(result => {
                 this.userData = result.data;
-                console.log(this.userData)
             }, error => {
                 console.error(error);
             });;
       },
       logout(){
-          console.log()
           localStorage.removeItem('token');
           this.$router.push('/');
       }
@@ -80,6 +78,7 @@ export default {
             list-style-type: none;
             a{
                 color:white;
+                font-weight: 900;
                 &:hover{
                     border-bottom:none;
                     text-decoration: none;

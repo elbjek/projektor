@@ -1,62 +1,98 @@
 <template>
 	<div class="main-layout">
-		<div class="">
-			<div class="hero-wrapper">
-				<div class="max-width">
-					<div class="hero">
-					<h1>Lorem ipsum dolor sit amet.</h1>
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-					<div class="buttons" style="display:flex">
-							<a class="btn white" href="/">Registruj se</a>
-					</div>
-					</div>
-				</div>
-			</div>
-			<div class="data-wrapper">
-				<h2>Šta nudimo?</h2>
-				<div class="wrapper max-width">
-					<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<div class="img">
-							<img src="../assets/icons/customer-service.svg" alt="">
-						</div>
-						<h5 class="card-title">Lorem Ipsum</h5>
-							<p class="card-text"> Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>				
-						<a href="#" class="card-link">Another link</a>
-					</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<div class="img">
-							<img src="../assets/icons/database.svg" alt="">
-						</div>
-						<h5 class="card-title">Lorem Ipsum</h5>
-							<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+   <div class="hero-wrapper">
+      <div class="max-width">
+         <div class="hero">
+            <h1>I ti možeš da doći do sredstava EU! </h1>
+            <p> Stvaramo uslove za lakši pristup sredstvima EU malim i srednjim preduzećima.</p>
+            <a class="btn white" href="/">Registruj se</a>
+         </div>
+      </div>
+   </div>
+   <div class="desc max-width">
+      <h5>Imaš malo/srednje preduzeće ili startap u razvoju? </h5>
+      <h5>Potrebna su ti sredstva da unaprediš svoje poslovanje? </h5>
+      <h5>Vidiš EU fondove kao mogućnost, ali do sada nisi imao priliku da apliciraš?
+         Ili, nisi uspeo da pronađeš relevantne informacije?</h5>
+      <p>Na pravom si mestu, jer mi Stvaramo uslove za lakši pristup sredstvima EU malim i srednjim preduzećima.</p>
+   </div>
+   <div class="data-wrapper">
+      <h2>Šta nudimo?</h2>
+      <div class="wrapper max-width">
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+               <div class="img">
+                  <img src="../assets/icons/customer-service.svg" alt="">
+               </div>
+               <h5 class="card-title">Upoznaj se sa programima finansiranja EU</h5>
+               <p class="card-text"> Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+               <a href="#" class="card-link">Another link</a>
+            </div>
+         </div>
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+               <div class="img">
+                  <img src="../assets/icons/database.svg" alt="">
+               </div>
+               <h5 class="card-title">Istraži bazu aktuelnih konkursa</h5>
+               <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+               <a href="#" class="card-link">Another link</a>
+            </div>
+         </div>
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+               <div class="img">
+                  <img src="../assets/icons/database.svg" alt="">
+               </div>
+               <h5 class="card-title">Proveri spremnost svog preduzeća</h5>
+               <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+               <a href="#" class="card-link">Another link</a>
+            </div>
+         </div>
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+               <div class="img">
+                  <img src="../assets/icons/database.svg" alt="">
+               </div>
+               <h5 class="card-title">Pronađi konsultanta</h5>
+               <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+               <a href="#" class="card-link">Another link</a>
+            </div>
+         </div>
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+               <div class="img">
+                  <img src="../assets/icons/database.svg" alt="">
+               </div>
+               <h5 class="card-title">Budi u toku </h5>
+               <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+               <a href="#" class="card-link">Another link</a>
+            </div>
+         </div>
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+               <div class="img">
+                  <img src="../assets/icons/database.svg" alt="">
+               </div>
+               <h5 class="card-title">Prati i učestvuj u događajima</h5>
+               <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+               <a href="#" class="card-link">Another link</a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="card person">
+      <div class="bg-image">
+         <h3 class="card-title">Jovan Popovic iz Kraljeva</h3>
+         <p class="card-text">Mogucnost.eu mi je pomogao da dodjem do sredstava iz IPARD fonda i unapredim proizvodnju.</p>
+         <button class="btn">Lorem</button>
+      </div>
+   </div>
+   <div class="apply">
+      <a href="/login">Prijavi se</a>
+   </div>
+</div>
 
-						<a href="#" class="card-link">Another link</a>
-					</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<div class="img">
-							<img src="../assets/icons/database.svg" alt="">
-						</div>					
-						<h5 class="card-title">Lorem Ipsum</h5>
-						<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-						<a href="#" class="card-link">Another link</a>
-					</div>
-					</div>
-				</div>
-			</div>
-				<div class="card person">
-					<div class="bg-image">
-						<h3 class="card-title">Jovan Popovic iz Kraljeva</h3>
-						<p class="card-text">Projektor mi je pomogao da dodjem do sredstava iz IPARD fonda i unapredim proizvodnju.</p>
-						<button class="btn">Registruj se</button>
-					</div>
-				</div>
-		</div>
-	</div>
 </template>
 
 <script>
@@ -68,6 +104,46 @@ export default {
 <style lang="scss" scoped>
 
 	.main-layout{
+		.apply{
+			background-color:white;
+			font-weight: 900;
+			font-size: 25px;
+			color:#048BA8;
+			height:300px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			a{
+				padding:0.3rem;
+				&:hover{
+					text-decoration: none;
+					padding:40px;
+				}
+			}
+		}
+		.desc{
+			text-align:left;
+			padding:60px 0px;
+			h5{
+				margin:20px 0px;
+				display: flex;
+				align-items: center;
+				&::before{
+				content: '';
+				height: 10px;
+				width: 10px;
+				border-radius: 20px;
+				background-color: #8cc63f;
+				margin-right: 10px;
+				}
+			}
+			p{
+				font-weight: 900;
+				font-size: 24px;
+				padding:0px;
+				color:#8cc63f;
+			}
+		}
 		.max-width{
 			width:1240px;
 			margin:0 auto;
@@ -96,9 +172,12 @@ export default {
 				color:white;
 			}		
 			.white{
-				border:2px solid white;
-				color:white;
-			}   
+				padding: 13px 44px;
+				color: white;
+				font-weight: 900;
+				background-color: #8cc63f;
+				font-size: 20px;
+			}
 		}
 		.buttons{
 			.btn:last-child{
@@ -111,6 +190,7 @@ export default {
 			border-radius: 20px;
 		}
 		}
+
 		.data-wrapper{
 			background-color: #f4f4f4;
 			min-height: 600px;
@@ -124,6 +204,13 @@ export default {
 					justify-content: center;
 					grid-template-columns: 33% 33% 33%;
 					width:100%;
+					padding:0px 100px;
+					grid-gap: 20px;
+					@media screen and (max-width:1024px){
+						grid-template-columns: 50% 50%;
+						justify-content: center;
+						align-items: center;
+					}
 					@media screen and (max-width:630px){
 						grid-template-columns: 1fr;
 						justify-content: center;
@@ -134,6 +221,7 @@ export default {
 					border:none;
 					border-radius:8px;
 					justify-self: center;
+					margin:20px;
 				}
 		.img{
 			width:40px;

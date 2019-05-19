@@ -16,7 +16,8 @@ export default {
   name: 'footer',
   components: {
     
-  }
+  },
+
 }
 </script>
 

@@ -6,14 +6,10 @@
             </div>
             <form method="POST" action="/login"  v-on:submit.prevent="formSubmit">
                 <input type="text" v-model="fields.username" value="gliga" placeholder="username" >
-                <input type="text" v-model="fields.password" value="123qwe" placeholder="password" >
+                <input type="password" v-model="fields.password" value="123qwe" placeholder="password" >
                 <button>Submit</button>
             </form>
         </div>
-       <!-- <div class="form-group">
-            <label for="phone_number">Phone number</label>
-            <input type="text" class="form-control" name="phone_number" :placeholder="client.phone_number" v-model="fields.phone_number"/>
-        </div> -->
       </div>
 </template>
 
@@ -45,8 +41,7 @@ export default {
                     result.data.name,
                     result.data.jwt
                 )
-                console.log(result.data.redirect)
-                this.$router.push(result.data.redirect)
+                this.$router.push('/home')
             }, error => {
                 console.error(error);
             });

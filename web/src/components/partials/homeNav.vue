@@ -3,10 +3,10 @@
        <div class="navigation max-width">
         <ul class="right">
             <li><a class="mail first" href="">Pocetna</a></li>
-            <li><a class="mail" href="">Konsultanti</a></li>
-            <li><a class="mail" href="">Dogadjaji</a></li>
-            <li><a class="mail" href="">Znanje</a></li>
-            <li><a class="mail" href="">Pozivi</a></li>
+            <li><a class="mail" href="#">Konsultanti</a></li>
+            <li><a class="mail" href="#">Dogadjaji</a></li>
+            <li><a class="mail" href="#">Znanje</a></li>
+            <li><a class="mail" href="/calls">Pozivi</a></li>
         </ul>
        </div> 
     </div>

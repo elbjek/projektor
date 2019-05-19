@@ -34,7 +34,6 @@ export default {
       if(localStorage.getItem('token')){
         this.token - localStorage.getItem('token');
         return true;
-        console.log("im here")
       } else{
         return false
       };
@@ -54,7 +53,6 @@ export default {
                 })
                 .then(result => {
                 this.userData = result.data;
-                console.log(this.userData)
             }, error => {
                 console.error(error);
             });;

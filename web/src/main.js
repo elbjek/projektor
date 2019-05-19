@@ -6,7 +6,6 @@ window.VueRouter = VueRouter;
 import VueRouter from 'vue-router';
 import router from './router';
 
-export const EventBus = new Vue();
 // CSS
 import './assets/css/main.scss'
 
@@ -23,15 +22,18 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 // jQuery for bootstrap
 Vue.use({
   install: function(Vue){
-      Vue.prototype.$jQuery = require('jquery');
+    Vue.prototype.$jQuery = require('jquery');
   }
 }); 
+
+
 
 
 Vue.use(VueRouter);
 
 
 Vue.config.productionTip = false;
+export const EventBus = new Vue();
 
 // window.eventBus = new Vue();
 new Vue({
