@@ -3,7 +3,6 @@
         <div class="max-width">
            <div class="card">
                     <div class="card-body">
-                        <h2>Poziv</h2>
                         <div class="img">
                             <img src="../assets/images/10.jpg" alt="">
                         </div>

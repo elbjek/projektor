@@ -1,5 +1,6 @@
 <template>
 	<div class="calls-wrapper">
+    <homenav></homenav>
         <div class="max-width">
             <h2> Pozivi</h2>
             <div class="calls">
@@ -21,10 +22,11 @@
 </template>
 
 <script>
-
+import homenav from "./partials/homeNav.vue";
 export default {
   name: 'Profile',
   components:{
+      homenav
   },
   data(){
       return{
